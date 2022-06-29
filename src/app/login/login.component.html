@@ -1,0 +1,22 @@
+<div class="container">
+    <div>
+      User Name : <input type="text" name="username" [(ngModel)]="username">
+      Password : <input type="password" name="password" [(ngModel)]="password">
+    </div>
+    <button (click)=checkLogin() class="btn btn-success">
+      Login
+    </button>
+  </div>
+
+
+    <h1>Влез</h1> 
+      <div class="container">
+        <label for="username"><b>Потребителско име: </b></label> 
+        <input type="text" placeholder="Въведи име" name="username" required [(ngModel)]="username">
+    
+        <label for="password"><b>Парола: </b></label>
+        <input type="password" placeholder="Въведи парола" name="password" required  [(ngModel)]="password">
+    
+       <button (click)=checkLogin() class="btn btn-success">Влез</button> 
+     </div>
+    
