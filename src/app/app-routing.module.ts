@@ -2,13 +2,16 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { MainComponent } from './main/main.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { TeamComponent } from './team/team.component';
 
 
 const routes: Routes = [
-  { path: '', component: AppComponent },
-  { path: 'addemployee', component: AppComponent },
+  { path: '', component: MainComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'logout', component: AppComponent },
+  { path: 'team', component: TeamComponent },
+  { path: 'projects', component: ProjectsComponent }
 ];
 
 @NgModule({

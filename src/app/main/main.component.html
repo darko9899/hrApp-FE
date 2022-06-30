@@ -1,0 +1,544 @@
+
+  <div class="container" id="main-container">
+      <div class="row">
+          <div *ngFor="let employee of employees" class="col-md-6 col-xl-3">
+              <div class="card m-b-30">
+                  <div class="card-body row">
+                      <div class="col-6">
+                          <a href=""><img src="{{employee?.imageUrl}}" alt="" class="img-fluid rounded-circle w-60"></a>
+                      </div>
+                      <div class="col-6 card-title align-self-center mb-0">
+                          <h5>{{employee?.name}}</h5>
+                          <p class="m-0">{{employee?.jobTitle}}</p>
+                      </div>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><i class="fa fa-envelope float-right"></i>{{employee?.email}}</li>
+                    <li class="list-group-item"><i class="fa fa-phone float-right"></i>Телефон : {{employee?.phone}}</li>
+                  </ul>
+                  <div class="card-body">
+                      <div class="float-right btn-group btn-group-sm">
+                          <a (click)="onOpenModal(employee, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+                          <a (click)="onOpenModal(employee, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>    
+                      </div>
+                      <ul class="social-links list-inline mb-0">
+                          <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook-f"></i></a></li>
+                          <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                          <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <div class="container">
+  <div class="row">
+      <div class="col-lg-12">
+          <div class="main-box clearfix">
+              <div class="table-responsive">
+                  <table class="table user-list">
+                      <thead>
+                          <tr>
+                              <th>User</th>
+                              <th><span>Created</span></th>
+                              <th class="text-center"><span>Status</span></th>
+                              <th><span>Email</span></th>
+                              <th>&nbsp;</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>
+                                  <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                                  <a href="#" class="user-link">Mila Kunis</a>
+                                  <span class="user-subhead">Admin</span>
+                              </td>
+                              <td>
+                                  2013/08/08
+                              </td>
+                              <td class="text-center">
+                                  <span class="label label-default">Inactive</span>
+                              </td>
+                              <td>
+                                  <a href="#">mila@kunis.com</a>
+                              </td>
+                              <td style="width: 20%;">
+                                  <a href="#" class="table-link">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                                  <a href="#" class="table-link">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                                  <a href="#" class="table-link danger">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="">
+                                  <a href="#" class="user-link">George Clooney</a>
+                                  <span class="user-subhead">Member</span>
+                              </td>
+                              <td>
+                                  2013/08/12
+                              </td>
+                              <td class="text-center">
+                                  <span class="label label-success">Active</span>
+                              </td>
+                              <td>
+                                  <a href="#">marlon@brando.com</a>
+                              </td>
+                              <td style="width: 20%;">
+                                  <a href="#" class="table-link">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                                  <a href="#" class="table-link">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                                  <a href="#" class="table-link danger">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
+                                  <a href="#" class="user-link">Ryan Gossling</a>
+                                  <span class="user-subhead">Registered</span>
+                              </td>
+                              <td>
+                                  2013/03/03
+                              </td>
+                              <td class="text-center">
+                                  <span class="label label-danger">Banned</span>
+                              </td>
+                              <td>
+                                  <a href="#">jack@nicholson</a>
+                              </td>
+                              <td style="width: 20%;">
+                                  <a href="#" class="table-link">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                                  <a href="#" class="table-link">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                                  <a href="#" class="table-link danger">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="">
+                                  <a href="#" class="user-link">Emma Watson</a>
+                                  <span class="user-subhead">Registered</span>
+                              </td>
+                              <td>
+                                  2004/01/24
+                              </td>
+                              <td class="text-center">
+                                  <span class="label label-warning">Pending</span>
+                              </td>
+                              <td>
+                                  <a href="#">humphrey@bogart.com</a>
+                              </td>
+                              <td style="width: 20%;">
+                                  <a href="#" class="table-link">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                                  <a href="#" class="table-link">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                                  <a href="#" class="table-link danger">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="">
+                                  <a href="#" class="user-link">Robert Downey Jr.</a>
+                                  <span class="user-subhead">Admin</span>
+                              </td>
+                              <td>
+                                  2013/12/31
+                              </td>
+                              <td class="text-center">
+                                  <span class="label label-success">Active</span>
+                              </td>
+                              <td>
+                                  <a href="#">spencer@tracy</a>
+                              </td>
+                              <td style="width: 20%;">
+                                  <a href="#" class="table-link">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                                  <a href="#" class="table-link">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                                  <a href="#" class="table-link danger">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="">
+                                  <a href="#" class="user-link">Mila Kunis</a>
+                                  <span class="user-subhead">Admin</span>
+                              </td>
+                              <td>
+                                  2013/08/08
+                              </td>
+                              <td class="text-center">
+                                  <span class="label label-default">Inactive</span>
+                              </td>
+                              <td>
+                                  <a href="#">mila@kunis.com</a>
+                              </td>
+                              <td style="width: 20%;">
+                                  <a href="#" class="table-link">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                                  <a href="#" class="table-link">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                                  <a href="#" class="table-link danger">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="">
+                                  <a href="#" class="user-link">George Clooney</a>
+                                  <span class="user-subhead">Member</span>
+                              </td>
+                              <td>
+                                  2013/08/12
+                              </td>
+                              <td class="text-center">
+                                  <span class="label label-success">Active</span>
+                              </td>
+                              <td>
+                                  <a href="#">marlon@brando.com</a>
+                              </td>
+                              <td style="width: 20%;">
+                                  <a href="#" class="table-link">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                                  <a href="#" class="table-link">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                                  <a href="#" class="table-link danger">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                                  <a href="#" class="user-link">Ryan Gossling</a>
+                                  <span class="user-subhead">Registered</span>
+                              </td>
+                              <td>
+                                  2013/03/03
+                              </td>
+                              <td class="text-center">
+                                  <span class="label label-danger">Banned</span>
+                              </td>
+                              <td>
+                                  <a href="#">jack@nicholson</a>
+                              </td>
+                              <td style="width: 20%;">
+                                  <a href="#" class="table-link">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                                  <a href="#" class="table-link">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                                  <a href="#" class="table-link danger">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                                  <a href="#" class="user-link">Emma Watson</a>
+                                  <span class="user-subhead">Registered</span>
+                              </td>
+                              <td>
+                                  2004/01/24
+                              </td>
+                              <td class="text-center">
+                                  <span class="label label-warning">Pending</span>
+                              </td>
+                              <td>
+                                  <a href="#">humphrey@bogart.com</a>
+                              </td>
+                              <td style="width: 20%;">
+                                  <a href="#" class="table-link">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                                  <a href="#" class="table-link">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                                  <a href="#" class="table-link danger">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="">
+                                  <a href="#" class="user-link">Robert Downey Jr.</a>
+                                  <span class="user-subhead">Admin</span>
+                              </td>
+                              <td>
+                                  2013/12/31
+                              </td>
+                              <td class="text-center">
+                                  <span class="label label-success">Active</span>
+                              </td>
+                              <td>
+                                  <a href="#">spencer@tracy</a>
+                              </td>
+                              <td style="width: 20%;">
+                                  <a href="#" class="table-link">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                                  <a href="#" class="table-link">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                                  <a href="#" class="table-link danger">
+                                      <span class="fa-stack">
+                                          <i class="fa fa-square fa-stack-2x"></i>
+                                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </a>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+              <ul class="pagination pull-right">
+                  <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+              </ul>
+          </div>
+      </div>
+  </div>
+  </div>
+  
+  <!-- Add Employee Modal -->
+  <div class="modal fade" id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="addEmployeeModalLabel">Добави работник</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <form #addForm="ngForm" (ngSubmit)="onAddEmloyee(addForm)">
+            <div class="form-group">
+               <label for="name">Име</label>
+               <input type="text" ngModel name="name" class="form-control" id="name" placeholder="Име" required>
+            </div>
+            <div class="form-group">
+               <label for="email">Имейл адреса</label>
+               <input type="email" ngModel name="email" class="form-control" id="email" placeholder="Имейл адреса" required>
+            </div>
+            <div class="form-group">
+               <label for="phone">Позиция</label>
+               <input type="text" ngModel name="jobTitle" class="form-control" id="jobTile" placeholder="Позиция" required>
+            </div>
+            <div class="form-group">
+               <label for="phone">Телефон</label>
+               <input type="text" ngModel name="phone" class="form-control" id="phone" placeholder="Телефон" required>
+            </div>
+            <div class="form-group">
+               <label for="phone">URL на снимка</label>
+               <input type="text" ngModel name="imageUrl" class="form-control" id="imageUrl" placeholder="URL на снимка" required>
+            </div>
+            <div class="modal-footer">
+               <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Затвори</button>
+               <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Запази промените</button>
+            </div>
+            </form>
+         </div>
+      </div>
+    </div>
+    </div>
+  
+  <!-- Edit Modal -->
+  <div class="modal fade" id="updateEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="employeeEditModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+       <div class="modal-content">
+          <div class="modal-header">
+             <h5 class="modal-title" id="updateEmployeeModalLabel">Промени информацията за: {{editEmployee?.name}}</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+             </button>
+          </div>
+          <div class="modal-body">
+             <form #editForm="ngForm">
+                <div class="form-group">
+                   <label for="name">Име</label>
+                   <input type="text" ngModel="{{editEmployee?.name}}" name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Име">
+                </div>
+                <input type="hidden" ngModel="{{editEmployee?.id}}" name="id" class="form-control" id="id" placeholder="Email">
+                <input type="hidden" ngModel="{{editEmployee?.employeeCode}}" name="userCode" class="form-control" id="userCode" placeholder="Email">
+                <div class="form-group">
+                   <label for="email">Имейл адреса</label>
+                   <input type="email" ngModel="{{editEmployee?.email}}" name="email" class="form-control" id="email" placeholder="Имейл адреса">
+                </div>
+                <div class="form-group">
+                   <label for="phone">Позиция</label>
+                   <input type="text" ngModel="{{editEmployee?.jobTitle}}" name="jobTitle" class="form-control" id="jobTitle" placeholder="Позиция">
+                </div>
+                <div class="form-group">
+                   <label for="phone">Телефон</label>
+                   <input type="text" ngModel="{{editEmployee?.phone}}" name="phone" class="form-control" id="phone" name="phone" placeholder="Телефон">
+                </div>
+                <div class="form-group">
+                   <label for="phone">URL на снимка</label>
+                   <input type="text" ngModel="{{editEmployee?.imageUrl}}" name="imageUrl" class="form-control" id="imageUrl" placeholder="URL на снимка">
+                </div>
+                <div class="modal-footer">
+                   <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Затвори</button>
+                   <button (click)="onUpdateEmloyee(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Запази промените</button>
+                </div>
+             </form>
+          </div>
+       </div>
+    </div>
+  </div>
+  
+  <!-- Delete Modal -->
+  <div class="modal fade" id="deleteEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+       <div class="modal-content">
+          <div class="modal-header">
+             <h5 class="modal-title" id="deleteModelLabel">Изтрий работник</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+             </button>
+          </div>
+          <div class="modal-body">
+             <p>Сигурни ли сте че искате да изтриете работник: {{deleteEmployee?.name}}?</p>
+             <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Не</button>
+                <button (click)="onDeleteEmloyee(deleteEmployee!.id)" class="btn btn-danger" data-dismiss="modal">Да</button>
+             </div>
+          </div>
+       </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  <div *ngIf="employees.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+    <div class="alert alert-info" role="alert">
+      <h4 class="alert-heading">NO EMPLOYEES!</h4>
+      <p>No Employees were found.</p>
+    </div>
+    </div>

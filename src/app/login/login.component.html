@@ -1,22 +1,16 @@
-<div class="container">
-    <div>
-      User Name : <input type="text" name="username" [(ngModel)]="username">
-      Password : <input type="password" name="password" [(ngModel)]="password">
+<div class="wrapper">
+  <form class="container">
+    <h1>Влез:</h1>
+    <div class="form-outline mb-4">
+      <input type="email" placeholder="Въведи потребителско име" id="form2Example1" class="form-control" />
+      <label class="form-label" for="form2Example1">Потребителско име</label>
     </div>
-    <button (click)=checkLogin() class="btn btn-success">
-      Login
-    </button>
-  </div>
-
-
-    <h1>Влез</h1> 
-      <div class="container">
-        <label for="username"><b>Потребителско име: </b></label> 
-        <input type="text" placeholder="Въведи име" name="username" required [(ngModel)]="username">
-    
-        <label for="password"><b>Парола: </b></label>
-        <input type="password" placeholder="Въведи парола" name="password" required  [(ngModel)]="password">
-    
-       <button (click)=checkLogin() class="btn btn-success">Влез</button> 
-     </div>
-    
+  
+    <div class="form-outline mb-4">
+      <input type="password" placeholder="Въведи парола" id="form2Example2" class="form-control" />
+      <label class="form-label" for="form2Example2">Парола</label>
+    </div>
+  
+    <button type="button" class="btn btn-primary btn-light">Влез</button>
+  </form>
+</div>
