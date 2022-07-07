@@ -10,9 +10,13 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  [x: string]: any;
 
 
   isAddEmployeeAllowed: boolean = true;
+  isProjectsAllowed: boolean = true;
+  isTeamsAllowed: boolean = true;
+  isLogoutAllowed: boolean = true;
   
   public editEmployee?: Employee;
   public deleteEmployee?: Employee;
@@ -25,6 +29,18 @@ export class AppComponent implements OnInit {
 
   setAddEmployeeFlag(flag: boolean): void {
     this.isAddEmployeeAllowed = flag;
+  }
+
+  setProjectsFlag(flag: boolean): void {
+    this.isProjectsAllowed = flag;
+  }
+
+  setTeamsFlag(flag: boolean): void {
+    this.isTeamsAllowed = flag;
+  }
+
+  setLogoutFlag(flag: boolean): void {
+    this.isLogoutAllowed = flag;
   }
 
   public onOpenModal(employee: Employee, mode: string): void {

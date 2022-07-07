@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" style="color:rgb(230, 98, 98);" routerLink="" (click)="setAddEmployeeFlag(true)">Human Resources App</a>
+    <a class="navbar-brand" *ngIf="isLogoutAllowed" style="color:rgb(230, 98, 98);" routerLink="" (click)="setAddEmployeeFlag(true)" (click)="setTeamsFlag(true)" (click)="setProjectsFlag(true)" (click)="setLogoutFlag(true)" >Human Resources App</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,20 +8,20 @@
           <li class="nav-item active" *ngIf="isAddEmployeeAllowed">
              <a class="nav-link" (click)="onOpenModal(null!, 'add')">Добави работник <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" routerLink="/projects">Проекти <span class="sr-only">(current)</span></a>
+          <li class="nav-item active" *ngIf="isProjectsAllowed">
+            <a class="nav-link" routerLink="/projects" (click)="setAddEmployeeFlag(false)" >Проекти <span class="sr-only">(current)</span></a>
          </li>
-         <li class="nav-item active">
+         <li class="nav-item active" *ngIf="isTeamsAllowed">
           <a class="nav-link" routerLink="/team" (click)="setAddEmployeeFlag(false)">Екипи <span class="sr-only">(current)</span></a>
        </li>
-       <li class="nav-item active">
-          <a class="nav-link" routerLink="/login">Вход</a>
+       <li class="nav-item active" *ngIf="!isLogoutAllowed">
+          <a class="nav-link" routerLink="/login" (click)="setAddEmployeeFlag(false)" (click)="setTeamsFlag(false)" (click)="setProjectsFlag(false)" (click)="setLogoutFlag(false)">Вход</a>
        </li>
-       <li class="nav-item active">
-          <a class="nav-link" (click)="onOpenModal(null!, 'add')">Изход <span class="sr-only">(current)</span></a>
+       <li class="nav-item active" *ngIf="isLogoutAllowed">
+          <a class="nav-link" routerLink="/login" (click)="setAddEmployeeFlag(false)" (click)="setTeamsFlag(false)" (click)="setProjectsFlag(false)" (click)="setLogoutFlag(false)">Изход <span class="sr-only">(current)</span></a>
        </li>
        </ul>
-       <form class="form-inline my-2 my-lg-0">
+       <form class="form-inline my-2 my-lg-0" *ngIf="isLogoutAllowed">
         <input type="search" (ngModelChange)="searchEmployees(key.value)" #key="ngModel" ngModel
          name="key" id="searchName" class="form-control mr-sm-2" placeholder="Търси..." required>
      </form>
