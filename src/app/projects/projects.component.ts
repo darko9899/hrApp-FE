@@ -1,4 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Project } from '../project';
+import { ProjectService } from '../project.service';
 
 @Component({
   selector: 'app-projects',
@@ -6,10 +9,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
+  public projects: Project[] = [];
+  public editProject?: Project;
+  public deleteProjects?: Project;
 
-  constructor() { }
+  constructor(private projectService: ProjectService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.getProjects();
+  }
+
+  public getProjects(): void {
+    this.projectService.getProjects().subscribe(
+      (response: Project[]) => {
+        this.projects = response;
+        console.log(this.projects);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
 
 }

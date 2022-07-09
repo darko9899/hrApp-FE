@@ -11,7 +11,7 @@ import { Employee } from '../employee';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-public employees: Employee[] = [];
+  public employees: Employee[] = [];
   public editEmployee?: Employee;
   public deleteEmployee?: Employee;
 

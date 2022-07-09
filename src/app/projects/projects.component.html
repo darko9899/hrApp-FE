@@ -1,10 +1,11 @@
 <div class="container">
     <button type="button" class="btn btn-primary btn-light">Добави проект</button>
     <br><br><br>
+    <div *ngFor="let project of projects" >
 <table class="table">
     <thead>
       <tr>
-        <th scope="col"><div class="naslov">Проект: JiraServiceDesk</div></th>
+        <th scope="col"><div class="naslov">Проект: {{project.name}}</div></th>
         <th scope="col"></th>
         <th scope="col"><div class="editbutton">
             <a  class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
@@ -23,67 +24,12 @@
             <td class="text-bold"> <div class="text-bold">Имейл</div></td>
     
           </tr>
-          <tr>
-            <th class="text-bol"><div class="text-bol">Зоран Григоров</div></th>
-            <th class="text-bol"><div class="text-bol">UI</div></th>
-            <th class="text-bol"><div class="text-bol">zoran@gmail.com</div></th>
+          <tr *ngFor="let employee of project.employees">
+            <th class="text-bol"><div class="text-bol">{{employee.name}}</div></th>
+            <th class="text-bol"><div class="text-bol">{{employee.role}}</div></th>
+            <th class="text-bol"><div class="text-bol">{{employee.email}}</div></th>
     
-          </tr>
-          <tr>
-            <th class="text-bol"><div class="text-bol">Иван Тодоров</div></th>
-            <th class="text-bol"><div class="text-bol">Backend</div></th>
-            <th class="text-bol"><div class="text-bol">ivan@tu-sofia.bg</div></th>
-    
-          </tr> 
-          <tr>
-            <th class="text-bol"><div class="text-bol">Силвия Иванова</div></th>
-            <th class="text-bol"><div class="text-bol">QA</div></th>
-            <th class="text-bol"><div class="text-bol">ivanova@tu-sofia.bg</div></th>
-    
-          </tr>
-    </tbody>
+          </tr>      
   </table>
-<br><br><br>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col"><div class="naslov">Проект: MobilePhoneSeller</div></th>
-        <th scope="col"></th>
-        <th scope="col"><div class="editbutton">
-            <a  class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
-            <a  class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>    
-        </div></th>
-     
-      
-        
-        
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row"><div class="text-bold">Име</div></th>
-            <td class="text-bold"><div class="text-bold">Позиция</div></td>
-            <td class="text-bold"> <div class="text-bold">Имейл</div></td>
-    
-          </tr>
-          <tr>
-            <th class="text-bol"><div class="text-bol">Краси Иванов</div></th>
-            <th class="text-bol"><div class="text-bol">Backend</div></th>
-            <th class="text-bol"><div class="text-bol">krasi@gmail.com</div></th>
-    
-          </tr>
-          <tr>
-            <th class="text-bol"><div class="text-bol">Милош Георгиев</div></th>
-            <th class="text-bol"><div class="text-bol">Frontend</div></th>
-            <th class="text-bol"><div class="text-bol">milosh@gmail.com</div></th>
-    
-          </tr> 
-          <tr>
-            <th class="text-bol"><div class="text-bol">Геoрги Лазаров</div></th>
-            <th class="text-bol"><div class="text-bol">QA</div></th>
-            <th class="text-bol"><div class="text-bol">georgi@abv.bg</div></th>
-    
-          </tr>
-    </tbody>
-  </table>
+</div>
 </div>
