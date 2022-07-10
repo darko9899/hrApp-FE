@@ -1,5 +1,5 @@
-<div class="container">
-    <button type="button" class="btn btn-primary btn-light">Добави екип</button>
+<div class="container" id="container">
+    <button type="button" class="btn btn-primary btn-light" (click)="onOpenModal(null!, 'add')">Добави екип</button>
     <br><br><br>
     <div *ngFor="let team of teams" >
 <table class="table">
@@ -8,10 +8,14 @@
         <th scope="col"><div class="naslov">Екип: {{team.name}}</div></th>
         <th scope="col"></th>
         <th scope="col"></th>
-        <th scope="col"><div class="editbutton">
-            <a  class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
-            <a  class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>    
-        </div></th>   
+        <th scope="col">
+          <div class="card-body">
+        <div class="float-right btn-group btn-group-sm">
+          <a (click)="onOpenModal(team, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+          <a (click)="onOpenModal(team, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>    
+        </div>
+      </div>
+      </th>   
       </tr>
     </thead>
     <tbody>
@@ -40,4 +44,87 @@
   </table>
 <br><br><br>
 </div>
+</div>
+
+<!-- Add Team Modal -->
+<div class="modal fade" id="addTeamModal" tabindex="-1" role="dialog" aria-labelledby="addTeamModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+       <div class="modal-header">
+          <h5 class="modal-title" id="addTeamModalLabel">Добави екип</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+       </div>
+       <div class="modal-body">
+          <form #addForm="ngForm" (ngSubmit)="onAddTeam(addForm)">
+          <div class="form-group">
+             <label for="name">Име</label>
+             <input type="text" ngModel name="name" class="form-control" id="name" placeholder="Име" required>
+          </div>
+          <select class="select" [(ngModel)]='employeeIds' [ngModelOptions]="{standalone: true}" multiple>
+            <option value={{employee.id}} *ngFor="let employee of employees">{{employee.name}}</option>
+          </select>
+          <div class="modal-footer">
+                 <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Затвори</button>
+                 <button (click)="onUpdateTeam(addForm.value)" data-dismiss="modal" class="btn btn-primary" >Запази промените</button>
+              </div>
+          
+          </form>
+       </div>
+    </div>
+  </div>
+  </div>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="updateTeamModal" tabindex="-1" role="dialog" aria-labelledby="teamEditModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+     <div class="modal-content">
+        <div class="modal-header">
+           <h5 class="modal-title" id="updateTeamModalLabel">Промени информацията за: {{editTeam?.name}}</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+           </button>
+        </div>
+        <div class="modal-body">
+           <form #editForm="ngForm">
+              <div class="form-group">
+                 <label for="name">Име</label>
+                 <input type="text" ngModel="{{editTeam?.name}}" name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Име">
+              </div>
+              <input type="hidden" ngModel="{{editTeam?.id}}" name="id" class="form-control" id="id" placeholder="Id">
+            
+<select class="select" [(ngModel)]='employeeIds' [ngModelOptions]="{standalone: true}" multiple>
+  <option value={{employee.id}} *ngFor="let employee of employees">{{employee.name}}</option>
+</select>
+
+              <div class="modal-footer">
+                 <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Затвори</button>
+                 <button (click)="onUpdateTeam(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Запази промените</button>
+              </div>
+           </form>
+        </div>
+     </div>
+  </div>
+</div>
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteTeamModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+     <div class="modal-content">
+        <div class="modal-header">
+           <h5 class="modal-title" id="deleteModelLabel">Изтрий работник</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+           </button>
+        </div>
+        <div class="modal-body">
+           <p>Сигурни ли сте че искате да изтриете работник: {{deleteTeam?.name}}?</p>
+           <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Не</button>
+              <button (click)="onDeleteProject(deleteTeam!.id)" class="btn btn-danger" data-dismiss="modal">Да</button>
+           </div>
+        </div>
+     </div>
+  </div>
 </div>

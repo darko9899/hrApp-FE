@@ -17,12 +17,17 @@ export class TeamService {
     return this.http.get<Team[]>(`${this.apiServerUrl}/team/all`);
   }
 
-  public addTeam(team: NewTeam): void{
-     this.http.post<Team>(`${this.apiServerUrl}/team/add`, team);
+  public addTeam(team: NewTeam, employeeIds: number[]): Observable<NewTeam> {
+     team.employeeIds = employeeIds;
+     return this.http.post<NewTeam>(`${this.apiServerUrl}/team/add`, team);
   }
 
-  public updateTeam(team: NewTeam): void {
-     this.http.put<Team>(`${this.apiServerUrl}/team/update`, team);
+  public updateTeam(team: NewTeam, employeeIds: number[]): Observable<NewTeam> {
+    team.employeeIds = employeeIds;
+    console.log("AAAAAAAAAAAAAAA");
+        console.log(team.employeeIds);
+        console.log("BBBBBBBBBBBBBBBBBBBBBB");
+     return this.http.put<NewTeam>(`${this.apiServerUrl}/team/update`, team);
   }
 
   public deleteTeam(teamId: number): Observable<void> {
