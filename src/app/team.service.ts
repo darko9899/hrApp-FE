@@ -24,9 +24,6 @@ export class TeamService {
 
   public updateTeam(team: NewTeam, employeeIds: number[]): Observable<NewTeam> {
     team.employeeIds = employeeIds;
-    console.log("AAAAAAAAAAAAAAA");
-        console.log(team.employeeIds);
-        console.log("BBBBBBBBBBBBBBBBBBBBBB");
      return this.http.put<NewTeam>(`${this.apiServerUrl}/team/update`, team);
   }
 

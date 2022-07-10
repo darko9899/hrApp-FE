@@ -15,16 +15,13 @@
           <a class="nav-link" routerLink="/team" (click)="setAddEmployeeFlag(false)">Екипи <span class="sr-only">(current)</span></a>
        </li>
        <li class="nav-item active" *ngIf="!isLogoutAllowed">
-          <a class="nav-link" routerLink="/login" (click)="setAddEmployeeFlag(false)" (click)="setTeamsFlag(false)" (click)="setProjectsFlag(false)" (click)="setLogoutFlag(false)">Вход</a>
+          <a class="nav-link" routerLink="/login" (click)="setAddEmployeeFlag(true)" (click)="setTeamsFlag(true)" (click)="setProjectsFlag(true)" (click)="setLogoutFlag(true)">Вход</a>
        </li>
        <li class="nav-item active" *ngIf="isLogoutAllowed">
           <a class="nav-link" routerLink="/login" (click)="setAddEmployeeFlag(false)" (click)="setTeamsFlag(false)" (click)="setProjectsFlag(false)" (click)="setLogoutFlag(false)">Изход <span class="sr-only">(current)</span></a>
        </li>
        </ul>
-       <form class="form-inline my-2 my-lg-0" *ngIf="isLogoutAllowed">
-        <input type="search" (ngModelChange)="searchEmployees(key.value)" #key="ngModel" ngModel
-         name="key" id="searchName" class="form-control mr-sm-2" placeholder="Търси..." required>
-     </form>
+       
     </div>
   </nav>
 

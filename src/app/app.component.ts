@@ -24,7 +24,16 @@ export class AppComponent implements OnInit {
 
   constructor(private employeeService: EmployeeService){}
 
-  ngOnInit() {
+  ngOnInit() {  
+    this.resetFlags();
+  }
+
+  resetFlags(): void {
+    this.isAddEmployeeAllowed = true;
+    this.isProjectsAllowed = true;
+    this.isTeamsAllowed = true;
+    this.isLogoutAllowed = true;
+  
   }
 
   setAddEmployeeFlag(flag: boolean): void {

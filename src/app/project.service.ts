@@ -24,9 +24,6 @@ export class ProjectService {
 
   public updateProject(project: NewProject, employeeIds: number[]): Observable<NewProject> {
     project.employeeIds = employeeIds;
-    console.log("AAAAAAAAAAAAAAA");
-        console.log(project.employeeIds);
-        console.log("BBBBBBBBBBBBBBBBBBBBBB");
     return this.http.put<NewProject>(`${this.apiServerUrl}/project/update`, project);
   }
 

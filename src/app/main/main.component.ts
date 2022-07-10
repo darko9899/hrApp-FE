@@ -19,6 +19,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.getEmployees();
+    
   }
 
   public getEmployees(): void {
